@@ -1,0 +1,76 @@
+/* SETUP */
+
+* { 
+    margin: 0;
+    padding: 0;
+}
+
+html { box-sizing: border-box; }
+*, ::before, ::after { box-sizing: inherit; }
+
+body {
+    min-height: 100vh;
+}
+
+/* CUSTOM STYLE */
+
+body {
+    background: linear-gradient(#615dad, #ffc8da);
+    background-repeat: no-repeat;
+}
+
+.intro {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    margin: 5rem auto;
+    width: 500px;
+}
+
+/* GAME DESCRIPTION */
+
+.intro__description {
+    background-color: #283e50;
+    padding: 2rem;
+    color: #ffffff;
+}
+
+h1 {
+    color: #ffffff;
+    font-family: "Lobster", serif;
+    background-color: #283e50;
+    width: 100%;
+    padding-bottom: 1.5rem;
+}
+
+/* IMAGE */
+
+.intro__image {
+    max-width: 100%;
+    border-radius: 2% 2% 0 0;
+}
+
+/*LINKS*/
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 1rem 0 1rem 0;
+    width: 100%;
+}
+
+.intro__rules {
+    background-color: #1fcca4;
+}
+
+.intro__start {
+    background-color: #0197f6;
+}
+
+.intro__rules:hover {
+    background-color: #1cbb96;
+}
+
+.intro__start:hover {
+    background-color: #0090e9;
+}
