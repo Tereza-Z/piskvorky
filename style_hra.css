@@ -12,22 +12,20 @@ body {
     min-height: 100vh;
 }
 
-/* index+hra.html */
+/* hra.html */
 
 body {
     background: linear-gradient(#615dad, #ffc8da);
     background-repeat: no-repeat;
 }
 
-.intro {
-    display: grid;
-    justify-items: center;
-    text-align: center;
-    margin: 5rem auto;
-    width: 75vw;
+.game__heading {
+    color: #ffffff;
+    font-family: "Lobster", sans-serif;
+    width: 100%;
+    padding-bottom: 1.5rem;
+    font-size: 2rem;
 }
-
-/* hra.html */
 
 .game {
     max-width: 70vmin;
@@ -53,7 +51,7 @@ body {
     border: 1px solid rgb(40, 40, 40);
 }
 
-.button:hover {
+.button:hover:focus:active{
     cursor: pointer;
     filter: opacity(0.8);
 }
