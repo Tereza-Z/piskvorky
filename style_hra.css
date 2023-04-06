@@ -30,7 +30,7 @@ body {
 /* hra.html */
 
 .game {
-    max-width: 80vmin;
+    max-width: 70vmin;
     display: grid;
     margin: 5rem auto;
 }
@@ -51,6 +51,11 @@ body {
     aspect-ratio: 1/1;
     filter: opacity(0.6);
     border: 1px solid rgb(40, 40, 40);
+}
+
+.button:hover {
+    cursor: pointer;
+    filter: opacity(0.8);
 }
 
 .game__stats {
