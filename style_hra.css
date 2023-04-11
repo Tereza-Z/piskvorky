@@ -75,14 +75,24 @@ body {
     color:white;
 }
 
-.stats__circle {
-    width: 2rem;
-    height: 2rem;
-    background-color: transparent;
-    border: 5px solid white;
-    border-radius: 50%;
-    margin-left: 1rem;
+.stats__active {
+    background-image: url(images/circle.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    flex: 0 0 25%;
+    padding: 1rem;   
 }
+
+
+.circle {
+    background-image: url(images/circle.svg);
+}
+
+.cross {
+    background-image: url(images/cross.svg);
+}
+
+
 
 .stats__icons {
     display: flex;
@@ -102,4 +112,18 @@ body {
 
 .stats__restart{
     background-color: #0090e9;
+}
+
+/*-------*/
+
+.btn--cross {
+    background-image: url(images/cross.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.btn--circle {
+    background-image: url(images/circle.svg);
+    background-repeat: no-repeat;
+    background-position: center;
 }
