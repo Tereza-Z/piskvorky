@@ -92,8 +92,6 @@ body {
     background-image: url(images/cross.svg);
 }
 
-
-
 .stats__icons {
     display: flex;
     justify-content: flex-end;

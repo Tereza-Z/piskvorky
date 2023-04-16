@@ -18,18 +18,9 @@ const handleButtonClick = (e) => {
     };
 };
 
+const buttons = document.querySelectorAll(".button")
 
-document.querySelector('.game__buttons button:nth-child(1)').addEventListener("click", handleButtonClick);
-document.querySelector('.game__buttons button:nth-child(2)').addEventListener("click", handleButtonClick);
-document.querySelector('.game__buttons button:nth-child(3)').addEventListener("click", handleButtonClick);
-document.querySelector('.game__buttons button:nth-child(4)').addEventListener("click", handleButtonClick);
-document.querySelector('.game__buttons button:nth-child(5)').addEventListener("click", handleButtonClick);
-document.querySelector('.game__buttons button:nth-child(6)').addEventListener("click", handleButtonClick);
-document.querySelector('.game__buttons button:nth-child(7)').addEventListener("click", handleButtonClick);
-document.querySelector('.game__buttons button:nth-child(8)').addEventListener("click", handleButtonClick);
-document.querySelector('.game__buttons button:nth-child(9)').addEventListener("click", handleButtonClick);
-document.querySelector('.game__buttons button:nth-child(10)').addEventListener("click", handleButtonClick);
-
+buttons.forEach((button) => button.addEventListener("click", handleButtonClick))
 
 
 
