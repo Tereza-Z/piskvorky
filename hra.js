@@ -34,8 +34,10 @@ const handleButtonClick = (e) => {
     
     const winner = findWinner(fieldSign);
     
-    if (winner === "o" || winner === "x") {alert(`Vyhrál hráč se symbolem "${winner}".`)}; 
-
+    if (winner === "o" || winner === "x") {
+        alert(`Vyhrál hráč se symbolem "${winner}".`)
+        location.reload()
+    }; 
 };
 
 buttons.forEach((button) => button.addEventListener("click", handleButtonClick))
