@@ -27,17 +27,6 @@ const homeConfirm = (event) => {
 homeBtn.addEventListener("click", homeConfirm)
 restartBtn.addEventListener("click", restartConfirm)
 
-//defines the board for the POST method
-const fieldSign = fieldArray.map((sign) => {
-    if (sign.classList.contains('btn--cross')) {
-        return 'x';
-    } else if (sign.classList.contains('btn--circle')) {
-        return 'o';
-    } else {
-        return '_';
-    }
-})
-
 //fuction that handles clicking on board fields
 const handleButtonClick = (e) => {
 
@@ -65,15 +54,7 @@ const handleButtonClick = (e) => {
         }
     });
 
-    const winner = findWinner(fieldSign);
-    
-    if (winner === "o" || winner === "x") {
-        alert(`Vyhrál hráč se symbolem "${winner}".`)
-        location.reload()
-    }; 
-};
-
-//function that handles the "x" player
+    //function that handles the "x" player
 fetch('https://piskvorky.czechitas-podklady.cz/api/suggest-next-move', {
 	method: 'POST',
 	headers: {
@@ -93,6 +74,14 @@ fetch('https://piskvorky.czechitas-podklady.cz/api/suggest-next-move', {
 		field.click()
         }
 	})
+
+    const winner = findWinner(fieldSign);
+    
+    if (winner === "o" || winner === "x") {
+        alert(`Vyhrál hráč se symbolem "${winner}".`)
+        location.reload()
+    }; 
+};
 
 buttons.forEach((button) => button.addEventListener("click", handleButtonClick))
 
