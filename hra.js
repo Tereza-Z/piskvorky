@@ -9,6 +9,36 @@ const fieldArray = Array.from(buttons); //creates and array from the selected bu
 const homeBtn = document.querySelector(".stats__home") //selects the home button
 const restartBtn = document.querySelector(".stats__restart") //selects the restart button
 
+//confirm functions for the HOME and RESTART buttons
+const restartConfirm = (event) => {
+    const confirmed = confirm("Opravdu chcete začít novou hru?")
+    if (confirmed === false) {
+        event.preventDefault()
+    }
+} 
+
+const homeConfirm = (event) => {
+    const confirmed = confirm("Opravdu se chcete vrátit na úvodní stránku?")
+    if (confirmed === false) {
+        event.preventDefault()
+    }
+} 
+
+homeBtn.addEventListener("click", homeConfirm)
+restartBtn.addEventListener("click", restartConfirm)
+
+//defines the board for the POST method
+const fieldSign = fieldArray.map((sign) => {
+    if (sign.classList.contains('btn--cross')) {
+        return 'x';
+    } else if (sign.classList.contains('btn--circle')) {
+        return 'o';
+    } else {
+        return '_';
+    }
+})
+
+//fuction that handles clicking on board fields
 const handleButtonClick = (e) => {
 
     if(currentPlayer === "circle") 
@@ -34,7 +64,7 @@ const handleButtonClick = (e) => {
             return '_';
         }
     });
-    
+
     const winner = findWinner(fieldSign);
     
     if (winner === "o" || winner === "x") {
@@ -43,23 +73,31 @@ const handleButtonClick = (e) => {
     }; 
 };
 
+//function that handles the "x" player
+fetch('https://piskvorky.czechitas-podklady.cz/api/suggest-next-move', {
+	method: 'POST',
+	headers: {
+		'Content-type': 'application/json',
+	},
+	body: JSON.stringify({
+		board: fieldSign,
+		player: 'cross', 
+	}),
+    })
+    
+	.then((response) => response.json())
+	.then((data) => {
+        if (currentPlayer === "cross") {
+		const { x, y } = data.position 
+		const field = buttons[x + y * 10]
+		field.click()
+        }
+	})
+
 buttons.forEach((button) => button.addEventListener("click", handleButtonClick))
 
-//confirm functions for the HOME and RESTART buttons
-const restartConfirm = (event) => {
-    const confirmed = confirm("Opravdu chcete začít novou hru?")
-    if (confirmed === false) {
-        event.preventDefault()
-    }
-} 
 
-const homeConfirm = (event) => {
-    const confirmed = confirm("Opravdu se chcete vrátit na úvodní stránku?")
-    if (confirmed === false) {
-        event.preventDefault()
-    }
-} 
 
-homeBtn.addEventListener("click", homeConfirm)
-restartBtn.addEventListener("click", restartConfirm)
+
+
 
