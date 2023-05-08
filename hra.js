@@ -6,6 +6,9 @@ let activePlayer = document.querySelector(".stats__active")
 const buttons = document.querySelectorAll('.button'); //selects all buttons
 const fieldArray = Array.from(buttons); //creates and array from the selected buttons
 
+const homeBtn = document.querySelector(".stats__home") //selects the home button
+const restartBtn = document.querySelector(".stats__restart") //selects the restart button
+
 const handleButtonClick = (e) => {
 
     if(currentPlayer === "circle") 
@@ -41,3 +44,22 @@ const handleButtonClick = (e) => {
 };
 
 buttons.forEach((button) => button.addEventListener("click", handleButtonClick))
+
+//confirm functions for the HOME and RESTART buttons
+const restartConfirm = (event) => {
+    const confirmed = confirm("Opravdu chcete začít novou hru?")
+    if (confirmed === false) {
+        event.preventDefault()
+    }
+} 
+
+const homeConfirm = (event) => {
+    const confirmed = confirm("Opravdu se chcete vrátit na úvodní stránku?")
+    if (confirmed === false) {
+        event.preventDefault()
+    }
+} 
+
+homeBtn.addEventListener("click", homeConfirm)
+restartBtn.addEventListener("click", restartConfirm)
+
